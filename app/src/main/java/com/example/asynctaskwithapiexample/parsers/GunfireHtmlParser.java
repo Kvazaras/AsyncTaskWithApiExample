@@ -13,7 +13,8 @@ public class GunfireHtmlParser {
         for (String line; (line = r.readLine()) != null; ) {
             Matcher m = Pattern.compile("id=\"projector_status_description\">(.*)").matcher(line);
             if(m.find()){
-                return  m.group(1);
+                String productStatus = m.group(1).split("</")[0];
+                return productStatus;
             }
         }
         return "";
